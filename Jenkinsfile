@@ -18,7 +18,7 @@ node('centos-jenkins') {
       if (qg.status == 'ERROR') {
         error "Pipeline aborted due to quality gate failure: ${qg.status}"
       } else {
-        echo "Pipeline passed with the following quality gate statys: ${qg.status}"
+        echo "Pipeline passed with the following quality gate status: ${qg.status}"
       }
     }
   }
