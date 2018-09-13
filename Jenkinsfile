@@ -15,8 +15,10 @@ node('centos-jenkins') {
   stage("Quality Gate"){
     timeout(time: 1, unit: 'HOURS') { // Just in case something goes wrong, pipeline will be killed after a timeout
       def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
-      if (qg.status != 'OK' || qg.status != 'WARN') {
+      if (qg.status == 'ERROR') {
         error "Pipeline aborted due to quality gate failure: ${qg.status}"
+      } else {
+        echo "Pipeline passed with the following quality gate statys: ${qg.status}"
       }
     }
   }
