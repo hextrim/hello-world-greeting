@@ -64,17 +64,17 @@ node('centos-jenkins-pt'){
   }
 }
 node('production-server'){
-  stage('Deploy to production-server'){
+  stage('Deploy to production server'){
     def server = Artifactory.server 'ArtifactoryPro Server'
     def downloadSpec = """{
       "files": [
         {
           "pattern": "example-project/$BUILD_NUMBER/*.zip",
           "target": "/home/jenkins/tomcat/webapps/",
-          "props": "Performance-Tested=Yes;Intergration-Tested=Yes",
+          "props": "Performance-Tested=Yes;Intergration-Tested=Yes"
         }
       ]
-    }""
+    }"""
     server.download(downloadSpec)
   }
 }
