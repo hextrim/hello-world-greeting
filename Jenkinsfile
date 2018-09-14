@@ -74,7 +74,7 @@ node('production-server'){
           "props": "Performance-Tested=Yes;Intergration-Tested=Yes",
         }
       ]
-    }"""
+    }""
     server.download(downloadSpec)
   }
 }
