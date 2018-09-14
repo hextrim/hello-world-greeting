@@ -70,8 +70,7 @@ node('production-server'){
       "files": [
         {
           "pattern": "example-project/$BUILD_NUMBER/hello-0.0.1.war",
-          "target": "/home/jenkins/tomcat/webapps/",
-          "props": "Performance-Tested=Yes;Intergration-Tested=Yes"
+          "target": "/home/jenkins/tomcat/webapps/"
         }
       ]
     }"""
