@@ -77,4 +77,7 @@ node('production-server'){
     }"""
     server.download(downloadSpec)
   }
+  stage('Move hello.0.0.1.war to tomcat ROOT_DIR'){
+    sh 'cp -f /home/jenkins/tomcat/webapps/$BUILD_NUMBER /home/jenkins/tomcat/webapps/'
+  }
 }
